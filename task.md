@@ -1,0 +1,81 @@
+# Task List - Electronics E-Commerce
+
+- [x] Project Initialization & Dependency Setup
+    - [x] Create Vite React App in workspace root
+    - [x] Install packages: `bootstrap`, `bootstrap-icons`, `gsap`, `swiper`
+    - [x] Set up main configuration & HTML metadata (fonts, meta tags)
+- [x] Shared Catalog & Global State
+    - [x] Write robust catalog dataset (`src/data/catalog.js` with 50-60 premium products)
+    - [x] Build global context (`src/context/AppContext.jsx` for cart, wishlist, compare, theme)
+- [x] Global Layout & Common Components
+    - [x] Write global CSS variables & styling tokens in `src/index.css`
+    - [x] Implement `src/App.jsx` with page routes and context providers
+    - [x] Implement Frosted Glass `Navbar.jsx` with dark-mode, wishlist, and cart state
+    - [x] Implement `Footer.jsx` with theme controls and brand details
+    - [x] Implement shared GSAP `MagneticButton.jsx`
+    - [x] Implement premium `ProductCard.jsx` with image-zoom and hover lift
+- [x] Iteration 1: Landing Page (`src/pages/LandingPage.jsx`)
+    - [x] Build Hero section with parallax and GSAP reveals
+    - [x] Build Trust Bar with micro-reveal animations
+    - [x] Build Featured Categories Swiper
+    - [x] Build filterable Best Sellers grid
+    - [x] Build Smart Home Showcase with split-screen ScrollTrigger interaction
+    - [x] Build Why Choose Us cards
+    - [x] Build Testimonials Slider
+    - [x] Build Brand Grid and Newsletter Subscription
+    - [x] Build Closing CTA
+- [x] Verification & Polish (Iteration 1)
+    - [x] Test dark/light mode toggle
+    - [x] Test mobile responsiveness
+    - [x] Test cart add functionality
+    - [x] Check accessibility & keyboard navigability
+    - [x] Generate walkthrough.md for iteration 1
+- [x] Iteration 2: Product Listing Page (`src/pages/ProductListingPage.jsx`)
+    - [x] Set up state for active category, brand checkboxes, rating bounds, and price range sliders
+    - [x] Create Top bar search input and sort selections (low-high price, high-low price, rating, newest)
+    - [x] Create Compare Drawer (slides up from bottom when compare length > 0)
+    - [x] Create Compare specs modal (side-by-side spec layout)
+    - [x] Create Quick View Modal (gallery, details description, variants options and add-to-cart)
+    - [x] Modify ProductCard to include compare checkbox, quick-view trigger button
+    - [x] Implement grid animations with GSAP stagger transitions
+    - [x] Verify filtering, search, sorting, comparing and Quick View controls
+    - [x] Update walkthrough.md for Iteration 2
+- [x] Iteration 3: Product Detail Page (`src/pages/ProductDetailPage.jsx`)
+    - [x] Build product info section (gallery thumbs, main image zoom, specs panel details)
+    - [x] Build variant select button groups (Color, Storage capacity, sizes options)
+    - [x] Build FAQs, reviews panel list and shipping/returns grid tabs
+    - [x] Build Frequently Bought Together dynamic bundle block (checkbox selections, total price discount calculations)
+    - [x] Build related products Swiper carousel
+    - [x] Implement Sticky Purchase Bar (slides in from top of screen on scrolling down) using GSAP ScrollTrigger
+    - [x] Verify image changes, bundle adding, related item clicks and purchase bar click actions
+    - [x] Update walkthrough.md for Iteration 3
+- [x] Iteration 4: Cart Page (`src/pages/CartPage.jsx`)
+    - [x] Build editable cart items table (row displays, subtotal calculations, remove action)
+    - [x] Build inline variant dropdown options changer inside cart item rows
+    - [x] Build Coupon Input panel with validation controls (accepts codes like `ELECTRA10` or `WELCOME20`)
+    - [x] Build Shipping & tax cost estimator (country selectors, zip code estimator rates logic)
+    - [x] Build Order Summary sidebar card (subtotal, coupon discounts, shipping rates, 8% taxes, checkout CTAs)
+    - [x] Build bottom recommended products slider (cross-selling items)
+    - [x] Implement GSAP animations for item deletions (slide/fade outs) and discount success highlights
+    - [x] Verify cart modifications, variant updates, code validations and checkout redirections
+    - [x] Update walkthrough.md for Iteration 4
+- [x] Iteration 5: Checkout Page (`src/pages/CheckoutPage.jsx`)
+    - [x] Build Progress indicator stepper (Cart -> Info -> Payment)
+    - [x] Build left column form sections: Contact (email), Shipping (address, zip, service select)
+    - [x] Build payment form sections: credit card mock layouts inputs (formats card numbers automatically)
+    - [x] Build Billing address toggle check boxes (same as shipping vs separate forms fields)
+    - [x] Build right column order summary box (renders cart items, final subtotals, express rates, taxes, totals)
+    - [x] Build trust badges row (SSL encryption logo indicators)
+    - [x] Implement GSAP animations for button submit loaders (processing delays before page switch redirects)
+    - [x] Verify validation warning states, payment inputs, shipping selectors and confirmation redirections
+    - [x] Update walkthrough.md for Iteration 5
+- [x] Iteration 6: Order Confirmation Page (`src/pages/OrderConfirmationPage.jsx`)
+    - [x] Build success drawing checkmark graphic container (animated using SVG path offsets)
+    - [x] Build dynamic floating confetti particles simulation using GSAP arrays transitions
+    - [x] Build Order details receipt summary card (OrderId, name, email, street, items purchased)
+    - [x] Build vertical shipment tracking timeline stepper (Placed -> Processing -> Shipped -> Out for Delivery)
+    - [x] Build print invoice stylesheet rules (hides navbars on trigger actions)
+    - [x] Build loyalty club credit card details code highlights (offers credit code: `ELECTRACLUB20`)
+    - [x] Build bottom recommended products slider grid (cross-selling similar technology products)
+    - [x] Verify animations loading, printing capabilities and landing redirects
+    - [x] Update walkthrough.md for Iteration 6

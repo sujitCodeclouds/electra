@@ -1,0 +1,393 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap");
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
+/* CSS Custom Properties for Theme Management */
+:root,
+[data-bs-theme="dark"] {
+  --bg-color: #0b0f19;
+  --bg-gradient: linear-gradient(135deg, #0b0f19 0%, #151824 100%);
+  --surface-color: rgba(22, 28, 45, 0.45);
+  --surface-solid: #151824;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.15);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-blue: #0066ff;
+  --accent-cyan: #00d2ff;
+  --accent-purple: #a855f7;
+  --accent-gradient: linear-gradient(
+    135deg,
+    #00d2ff 0%,
+    #0066ff 50%,
+    #a855f7 100%
+  );
+  --glass-blur: 16px;
+  --navbar-bg: rgba(11, 15, 25, 0.7);
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --footer-bg: linear-gradient(
+    180deg,
+    rgba(11, 15, 25, 0.4) 0%,
+    rgba(5, 7, 12, 0.98) 100%
+  );
+  --footer-border: rgba(0, 102, 255, 0.18);
+  --logo-filter: grayscale(100%) invert(1) brightness(0.85);
+}
+
+[data-bs-theme="light"] {
+  --bg-color: #f8fafc;
+  --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  --surface-color: rgba(255, 255, 255, 0.65);
+  --surface-solid: #ffffff;
+  --border-color: rgba(15, 23, 42, 0.06);
+  --border-hover: rgba(15, 23, 42, 0.12);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent-blue: #0066ff;
+  --accent-cyan: #09a6f3;
+  --accent-purple: #8b5cf6;
+  --accent-gradient: linear-gradient(
+    135deg,
+    #09a6f3 0%,
+    #0066ff 50%,
+    #8b5cf6 100%
+  );
+  --glass-blur: 16px;
+  --navbar-bg: rgba(248, 250, 252, 0.7);
+  --shadow-color: rgba(15, 23, 42, 0.05);
+  --footer-bg: linear-gradient(
+    180deg,
+    rgba(248, 250, 252, 0.75) 0%,
+    rgba(226, 232, 240, 0.95) 100%
+  );
+  --footer-border: rgba(15, 23, 42, 0.08);
+  --logo-filter: grayscale(100%) brightness(0.15);
+}
+
+/* Global Reset & Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image: var(--bg-gradient);
+  color: var(--text-primary);
+  font-family:
+    "Red Hat Text",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Red Hat Text", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.form-control,
+.form-select,
+.form-select option {
+  color: var(--text-primary) !important;
+}
+.form-control::placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 0.65;
+}
+
+a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+a:hover {
+  color: var(--accent-blue);
+}
+.review-slider .swiper-wrapper {
+  padding-bottom: 25px;
+}
+/* Premium Typography Helper */
+.text-gradient {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* display: inline-block; */
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, #a855f7 0%, #0066ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* display: inline-block; */
+}
+
+/* Glassmorphism Panels */
+.glass-panel {
+  background: var(--surface-color);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 var(--shadow-color);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.glass-panel:hover {
+  border-color: var(--border-hover);
+}
+
+.glass-card {
+  border-radius: 16px;
+  padding: 24px;
+  background: var(--surface-color);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px var(--shadow-color);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease,
+    box-shadow 0.4s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--border-hover);
+  box-shadow: 0 12px 30px var(--shadow-color);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+
+/* Swiper custom indicators */
+.swiper-pagination-bullet {
+  background: var(--text-secondary) !important;
+  opacity: 0.4;
+}
+.swiper-pagination-bullet-active {
+  background: var(--accent-cyan) !important;
+  opacity: 1 !important;
+  width: 24px !important;
+  border-radius: 4px !important;
+  transition: all 0.3s ease;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--text-primary) !important;
+  background: var(--surface-color);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px !important;
+  font-weight: bold;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: var(--accent-blue);
+  color: #fff !important;
+  border-color: transparent;
+}
+
+/* Animations helpers */
+.hover-lift {
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+/* Interactive elements */
+.badge-tech {
+  display: inline-block;
+  background: rgba(0, 102, 255, 0.1);
+  color: var(--accent-blue);
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  border-radius: 30px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+[data-bs-theme="dark"] .badge-tech {
+  background: rgba(0, 210, 255, 0.1);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(0, 210, 255, 0.2);
+}
+
+.btn-premium {
+  position: relative;
+  background: var(--accent-gradient);
+  color: #fff !important;
+  font-family: "Red Hat Text", sans-serif;
+  font-weight: 500;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 30px;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+}
+
+.btn-premium::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #a855f7 0%, #0066ff 50%, #00d2ff 100%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.btn-premium:hover {
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
+}
+
+.btn-premium:hover::before {
+  opacity: 1;
+}
+
+.btn-premium-outline {
+  background: transparent;
+  color: var(--text-primary) !important;
+  font-family: "Red Hat Text", sans-serif;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  padding: 12px 30px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.btn-premium-outline:hover {
+  background: var(--text-primary);
+  color: var(--bg-color) !important;
+  border-color: var(--text-primary);
+}
+
+/* Page transitions */
+.page-enter {
+  opacity: 0;
+}
+.page-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+}
+.page-exit {
+  opacity: 1;
+}
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+/* Fly to cart helper */
+.flying-product {
+  position: fixed;
+  z-index: 9999;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  pointer-events: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Wishlist Button hover transitions */
+.wishlist-btn-hover {
+  opacity: 0;
+  transform: translateY(-5px);
+  pointer-events: none;
+  transition:
+    opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover .wishlist-btn-hover {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Always visible on mobile/touch viewports as they do not have hover states */
+@media (max-width: 991px) {
+  .wishlist-btn-hover {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+  }
+}
+
+/* Quick View Button hover transitions and alignment positioning */
+.quick-view-btn-wrap {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translate(-50%, 8px);
+  opacity: 0;
+  z-index: 6;
+  pointer-events: none;
+  transition:
+    opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover .quick-view-btn-wrap {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
+@media (max-width: 991px) {
+  .quick-view-btn-wrap {
+    opacity: 1 !important;
+    transform: translate(-50%, 0) !important;
+    pointer-events: auto !important;
+  }
+}
